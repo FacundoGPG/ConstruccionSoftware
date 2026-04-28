@@ -1,7 +1,9 @@
 const pool = require('../util/database');
+const bcrypt = require('bcrypt');
 
 exports.User = class {
     constructor(username, name, password){
+        this.username = username;
         this.name = name;
         this.password = password;
     }
@@ -11,7 +13,7 @@ exports.User = class {
         const sql = `INSERT INTO users (username, name, password) 
                     VALUES ($1, $2, $3)
                     RETURNING id, username, name`;
-        const { rows } = await pool.query(sql, [this.username, this.name, this.password]);
+        const { rows } = await pool.query(sql, [this.username, this.name, hashedPass]);
         return rows[0];
     }
 

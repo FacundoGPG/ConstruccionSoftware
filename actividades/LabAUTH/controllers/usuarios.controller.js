@@ -1,39 +1,39 @@
 const model = require("../models/usuarios.model.js")
+const bcrypt = require('bcrypt');
 
 module.exports.render_login = async(req,res) =>{
-    /* const usuarioLogueado = 
-        model.login("user","pass"); */
-    /* res.render("usuarios/login",{
+    //const usuarioLogueado = model.login("user","pass");
+    /*res.render("usuarios/login",{
         user:usuarioLogueado
-    }); */
-
-    res.render("usuarios/registro", {registro: false});
+    });*/
+    res.render("usuarios/registro", {registro : false});
 }
 
 module.exports.do_login = async(req,res) =>{
     try{
         const usuario = await model.User.findByUsername(req.body.username);
-        if( ! usuario){
+        if(! usuario){ console.log("hola")
             return res.redirect("/usuarios/login");
         }
 
-        const doMatch = await bcrypt.compare(req.body.password, usuarios.password);
-        if(!doMatch){
+        const doMatch = await bcrypt.compare(req.body.password, usuario.password);
+        if(!doMatch){ console.log("buenas")
             return res.redirect("/usuarios/login");
         }
+
         req.session.username = usuario.username;
         req.session.isLoggedIn = true;
-        req.redirect("/usuarios/logged");
+        res.redirect("/usuarios/logged");
     } catch(e){
         console.error(e);
         res.redirect("/usuarios/login");
     }
 }
 
-module.exports.get_logged = async (req, res) => {
+module.exports.get_logged = async (req,res) => {
     const usuario = await model.User.findByUsername(req.session.username);
-    if(!Usuario) return res.redirect("/usuarios/login");
-    res.render("usuarios/logged", {user: Usuario});
+    if(!usuario) return res.redirect("/usuarios/login");
+    res.render("usuarios/logged", {user: usuario});
 };
 
 module.exports.get_registro = (req, res) => {
@@ -50,4 +50,4 @@ module.exports.post_registro = async (req, res) => {
         console.error(e);
         res.status(500).send('Error registrando usuario');
     }
-}
+};
