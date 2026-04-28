@@ -25,4 +25,31 @@ module.exports.getAllUsers = async(req, res) => {
         usuarios: usuarios,
         alertas: alertas
     });
+<<<<<<< HEAD
+=======
+}
+
+module.exports.getAllUsersActivos = async(req, res) => {
+    res.status(200).json({ status: "success",});
+}
+
+module.exports.addUserView = async(req, res) => {
+    res.status(200).json({ status: "success",});
+}
+
+module.exports.addUserForm = async(req, res) => {
+    res.status(200).json({ status: "success",});
+}
+
+module.exports.editUserView = async(req, res) => {
+    res.status(200).json({ status: "success",});
+}
+
+module.exports.editUserForm = async(req, res) => {
+    res.status(200).json({ status: "success",});
+}
+
+module.exports.deleteUser = async(req, res) => {
+    res.status(200).json({ status: "success",});
+>>>>>>> 47373a8518cd9db3e808f480dd0e2c2b09860966
 }

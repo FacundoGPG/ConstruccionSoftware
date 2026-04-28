@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "labmvc",
+=======
+  "name": "mvc",
+>>>>>>> 47373a8518cd9db3e808f480dd0e2c2b09860966
   "version": "1.0.0",
   "description": "",
   "license": "ISC",
@@ -11,7 +15,13 @@
   },
   "dependencies": {
     "body-parser": "^2.2.2",
+<<<<<<< HEAD
     "express": "^5.2.1"
   },
   "devDependencies": {}
+=======
+    "ejs": "^5.0.2",
+    "express": "^5.2.1"
+  }
+>>>>>>> 47373a8518cd9db3e808f480dd0e2c2b09860966
 }

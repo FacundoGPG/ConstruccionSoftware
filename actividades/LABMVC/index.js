@@ -19,4 +19,10 @@ app.get("/health", (req, res) => {
     res.end();
 });
 
+<<<<<<< HEAD
+=======
+const rutasUsuarios = require('./routes/usuarios.routes');
+app.use('/usuarios', rutasUsuarios);
+
+>>>>>>> 47373a8518cd9db3e808f480dd0e2c2b09860966
 app.listen(3000);

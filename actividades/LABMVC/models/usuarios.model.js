@@ -59,6 +59,7 @@ exports.ObtenerUsuariosActivos = function(correo,contrasena){
     return activeUsers;
 }
 
+<<<<<<< HEAD
 
 /*
 CRUD
@@ -81,3 +82,27 @@ Search by ID
 Search by Title
 Search by User ID
 */
+=======
+/*
+    CRUD
+
+    Create
+    Read
+    Update
+    Delete
+
+    List Table
+    Get Object
+
+    Users
+    Search by ID
+    Search by Name
+    Search by Email
+    Search by Role
+
+    Alerts
+    Search by ID
+    Search by Title
+    Search by User ID
+*/
+>>>>>>> 47373a8518cd9db3e808f480dd0e2c2b09860966
