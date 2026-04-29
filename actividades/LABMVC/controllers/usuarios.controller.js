@@ -1,55 +1,11 @@
-const express = require('express');
-const path = require('path');
-const fs = require('fs');
-const router = express.Router();
-const modelUsuarios = require('../models/usuarios.model');
-const modelAlertas = require('../models/alertas.model');
+const model = require("../models/usuarios.model.js")
 
-module.exports.getAllUsers = async(req, res) => {
-    let correo = "";
-    let contrasena = "";
 
-    let usuarios = modelUsuarios.ObtenerUsuariosActivos(correo, contrasena);
-    let alertas = modelAlertas.ObtenerAlertas();
-
-    /*res.setHeader("Content-Type", "application/json");
-    res.status(200)
-        .json({ status: "success",
-                message:"Get all users",
-                data: activeUsers
-            });
-    res.end();*/
-
+module.exports.index = async(req,res) =>{
+    const usuarios = model.ObtenerUsuarios()
+    console.log(usuarios.length)
+    //res.status(200).send({status:"success",message:"Get all users"})
     res.render("./usuarios/obtener_usuarios",{
-        title: "Obtener Usuarios",
-        usuarios: usuarios,
-        alertas: alertas
-    });
-<<<<<<< HEAD
-=======
-}
-
-module.exports.getAllUsersActivos = async(req, res) => {
-    res.status(200).json({ status: "success",});
-}
-
-module.exports.addUserView = async(req, res) => {
-    res.status(200).json({ status: "success",});
-}
-
-module.exports.addUserForm = async(req, res) => {
-    res.status(200).json({ status: "success",});
-}
-
-module.exports.editUserView = async(req, res) => {
-    res.status(200).json({ status: "success",});
-}
-
-module.exports.editUserForm = async(req, res) => {
-    res.status(200).json({ status: "success",});
-}
-
-module.exports.deleteUser = async(req, res) => {
-    res.status(200).json({ status: "success",});
->>>>>>> 47373a8518cd9db3e808f480dd0e2c2b09860966
+        usuarios: usuarios
+    })
 }
