@@ -1,31 +1,19 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <%- include('./../css.ejs') %>
+  <%- include('./../css.ejs') %>
 </head>
 <body>
-    <h1><%= title %></h1>
-    <ul>
-<<<<<<< HEAD
-        
-        <% usuarios.forEach(function(user) { %>
-            <li><%= user.nombre %></li>
-        <% }); %>
-
-        <% alertas.forEach(function(alerta) { %>
-            <li><%= alerta.titulo %></li>
-        <% }); %>
-    </ul>
-=======
-        <% usuarios.forEach(function(user) { %>
-            <li><%= user.nombre %></li>
-        <% }); %>
-    </ul>
-    <ul>
-        <% alertas.forEach(function(alerta) { %>
-            <li><%= alerta.titulo %></li>
-        <% }); %>
->>>>>>> 47373a8518cd9db3e808f480dd0e2c2b09860966
+  <h1>Obtener Usuarios</h1>
+  <ul>
+    <% for(var i = 0; i < usuarios.length; i++){  %>
+      <li>
+        <%= usuarios[i].id %>, 
+        <%= usuarios[i].nombre %>, 
+        <%= usuarios[i].activo %>
+      </li>
+    <% } %>
+  </ul>
 </body>
 <%- include('./../scripts.ejs') %>
 </html>
