@@ -4,6 +4,7 @@ const app     = express();
 const cookieParser = require('cookie-parser');
 const session = require("express-session");
 const cors = require('cors');
+const helmet = require('helmet');
 const { doubleCsrf } = require('csrf-csrf');
 
 const {
@@ -21,6 +22,14 @@ const {
     getCsrfTokenFromRequest: (req) => req.body['x-csrf-token'] || req.headers['x-csrf-token']
 }); 
 
+app.set('view engine', 'ejs');
+app.set('views', 'views');
+
+app.use(cookieParser());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
+
+
 //Permite cualquier origen (útil en desarrollo, no en producción)
 app.use(cors({
     origin: [
@@ -34,10 +43,7 @@ app.use(cors({
     credentials: true
 }));
 
-app.set('view engine', 'ejs');
-app.set('views', 'views');
 
-app.use(cookieParser());
 app.use(session({
     secret: 'mi string secreto que debe ser un string aleatorio muy largo, no como éste',
     resave: false,
@@ -48,8 +54,7 @@ app.use(session({
         secure: false, // Pon true cuando despliegues a HTTPS
     }
 }));
-app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 // Orden importante:
 // 1. PRIMERO validar el token del request entrante (POST/PUT/DELETE).
