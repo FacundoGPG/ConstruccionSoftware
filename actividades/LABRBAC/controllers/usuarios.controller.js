@@ -7,28 +7,35 @@ module.exports.render_login = async(req,res) =>{
         user:usuarioLogueado
     });*/
     res.render("usuarios/registro", {registro : false});
-}
+};
 
-module.exports.do_login = async(req,res) =>{
-    try{
+module.exports.do_login = async (req, res) => {
+    try {
         const usuario = await model.User.findByUsername(req.body.username);
-        if(! usuario){ console.log("hola")
-            return res.redirect("/usuarios/login");
+        if (!usuario) {
+            return res.redirect('/usuarios/login');
         }
 
         const doMatch = await bcrypt.compare(req.body.password, usuario.password);
-        if(!doMatch){ console.log("buenas")
-            return res.redirect("/usuarios/login");
+        if (!doMatch) {
+            return res.redirect('/usuarios/login');
         }
 
-        req.session.username = usuario.username;
+        // ──── NUEVO: cargar permisos del usuario ────
+        const permisos = await model.User.getPermisos(usuario.username);
+
+        req.session.username   = usuario.username;
         req.session.isLoggedIn = true;
-        res.redirect("/usuarios/logged");
-    } catch(e){
+        req.session.permisos   = permisos; // array de strings
+        console.log('Permisos del usuario:', permisos);
+
+        res.redirect('/usuarios/logged');
+
+    } catch (e) {
         console.error(e);
-        res.redirect("/usuarios/login");
+        res.redirect('/usuarios/login');
     }
-}
+};
 
 module.exports.get_logged = async (req,res) => {
     const usuario = await model.User.findByUsername(req.session.username);

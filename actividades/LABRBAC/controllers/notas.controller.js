@@ -14,19 +14,10 @@ exports.get_lista = async (req,res) => {
     }
 };
 
-exports.get_form_crear = (req,res)=> {
-    try{
-        const nota = new model.Nota(
-            req.body.titulo,
-            req.bod.contenido,
-            req.session.username
-        );
-        await nota.crear();
-        res.redirect('/notas');
-    }catch (e){
-        console.error(e);
-        res.status(500).send('Error al crear la nota');
-    }
+exports.get_form_crear = (req, res) => {
+    res.render("notas/crear", {
+        permisos: req.session.permisos || [],
+    });
 };
 
 exports.get_form_editar = async (req, res) => {
@@ -68,4 +59,19 @@ exports.post_eliminar = async (req, res) => {
         console.error(e);
         res.status(500).send('Eror al eliminar la nota');
     }
-}
+};
+
+exports.post_crear = async (req, res) => {
+    try {
+        const nota = new model.Nota(
+            req.body.titulo,
+            req.body.contenido,
+            req.session.username
+        );
+        await nota.crear();
+        res.redirect('/notas');
+    } catch (e) {
+        console.error(e);
+        res.status(500).send('Error al crear la nota');
+    }
+};;
