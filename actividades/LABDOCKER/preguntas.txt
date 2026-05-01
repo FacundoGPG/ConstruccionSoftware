@@ -1,0 +1,23 @@
+¿Que elementos hay que configurar para un entorno de producción?
+
+Un entorno de producción requiere configurar el servidor (físico o en la nube), sistema operativo actualizado, servidor web (como Apache o Nginx), base de datos y despliegue de la aplicación. También se deben incluir medidas de seguridad como certificados SSL, firewalls y control de accesos. Además, es importante configurar variables de entorno, monitoreo, logs, copias de seguridad y un dominio con DNS correctamente configurado.
+
+
+¿Que variables de entorno tienes que crear en tu proyecto?
+
+Las variables de entorno dependen del proyecto, pero comúnmente incluyen credenciales de base de datos (DB_HOST, DB_USER, DB_PASSWORD), claves de API, secretos de autenticación (JWT_SECRET), configuración del entorno (NODE_ENV), puertos (PORT) y configuraciones de servicios externos como correo o almacenamiento en la nube.
+
+
+Investiga los tipos de DNS y explícalos
+
+Los principales tipos de registros DNS son: A (asocia dominio a IPv4), AAAA (asocia dominio a IPv6), CNAME (alias de otro dominio), MX (servidores de correo), TXT (información adicional como verificaciones), NS (servidores autoritativos del dominio) y PTR (resolución inversa de IP a dominio).
+
+
+¿Qué significa para un dominio cambiar el registro NS a diferencia de los demás?
+
+Cambiar el registro NS significa transferir la autoridad del dominio a otros servidores DNS. A diferencia de otros registros que solo afectan configuraciones específicas, el cambio de NS implica que toda la gestión del dominio pasa a otro proveedor.
+
+
+Investiga los pros y contras de los certificados SSL gratuitos contra los de pago ¿Qué ventajas y desventajas otorgan? ¿Para cuando se recomendaría usar uno de pago hoy en día?
+
+Los certificados SSL gratuitos como los de Let's Encrypt ofrecen cifrado básico sin costo, son fáciles de usar y suficientes para muchos proyectos, pero tienen renovaciones frecuentes y menor nivel de validación. Los certificados de pago ofrecen validación de identidad (OV o EV), mayor confianza, soporte técnico y garantías, pero implican un costo. Se recomienda usar uno de pago en sitios empresariales, comercio electrónico o plataformas donde la confianza del usuario sea crítica, mientras que los gratuitos son adecuados para proyectos personales o internos.
