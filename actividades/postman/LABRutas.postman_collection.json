@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "d9323958-aee1-4e9d-ab51-91c81c9688ba",
+		"name": "LABRutas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "50390140",
+		"_collection_link": "https://fakgpg-9537854.postman.co/workspace/Facundo-Gael-Pi%C3%B1eiro-Gonzalez's~47379d20-fe0c-4b72-88f5-263e46e2e970/collection/50390140-d9323958-aee1-4e9d-ab51-91c81c9688ba?action=share&source=collection_link&creator=50390140"
+	},
+	"item": [
+		{
+			"name": "Inicio",
+			"item": [
+				{
+					"name": "Inicio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000"
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "contacto",
+			"item": [
+				{
+					"name": "contacto",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "aficiones",
+			"item": [
+				{
+					"name": "aficiones",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "info",
+			"item": [
+				{
+					"name": "info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}{{port}}/info",
+							"host": [
+								"{{local}}{{port}}"
+							],
+							"path": [
+								"info"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "acerca",
+			"item": [
+				{
+					"name": "acerca",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "hobbies",
+			"item": [
+				{
+					"name": "hobbies",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "guardar",
+			"item": [
+				{
+					"name": "guardar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{local}}{{port}}/mensajes",
+							"host": [
+								"{{local}}{{port}}"
+							],
+							"path": [
+								"mensajes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

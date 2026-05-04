@@ -17,3 +17,4 @@ app.post('/form_method', (request, response, next) => {
     for(var i = 1; i <= indice; i++){
         console.log(imprimir)
     }
+});
