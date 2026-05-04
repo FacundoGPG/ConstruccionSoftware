@@ -1,5 +1,0 @@
-¿Qué beneficios encuentras en el estilo MVC?
-Separación clara de responsabilidades (modelo, vista y controlador), lo que facilita el mantenimiento y la escalabilidad. Permite reutilizar código, trabajar en paralelo (frontend y backend), y hace que el sistema sea más organizado y fácil de probar.
-
-¿Encuentras alguna desventaja en el estilo arquitectónico MVC?
-Puede volverse complejo en aplicaciones pequeñas o mal estructuradas, generando más archivos y sobrecarga innecesaria. También puede haber confusión en la división de responsabilidades si no se implementa correctamente.
