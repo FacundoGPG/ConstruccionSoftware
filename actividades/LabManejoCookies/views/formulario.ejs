@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>Formulario CSRF</title></head>
+<body>
+    <h1>Formulario con protección CSRF</h1>
+    <form action="/formulario" method="POST">
+        <!-- Token CSRF: campo oculto que el servidor verifica -->
+        <input type="hidden" name="x-csrf-token" value="<%= csrfToken %>">
+        <label>Dato: <input type="text" name="dato"></label>
+        <br><br>
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>

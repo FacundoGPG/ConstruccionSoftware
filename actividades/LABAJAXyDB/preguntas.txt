@@ -1,0 +1,11 @@
+¿Qué importancia tiene AJAX en el desarrollo de RIA's (Rich Internet Applications)?
+
+AJAX permite que una aplicación web envíe y reciba datos del servidor sin recargar toda la página. Esto hace que las RIA’s sean más rápidas, interactivas y fluidas, mejorando la experiencia del usuario al comportarse más como una aplicación de escritorio.
+
+¿Qué implicaciones de seguridad tiene AJAX? ¿Dónde se deben hacer las validaciones de seguridad, del lado del cliente o del lado del servidor?
+
+AJAX puede exponer endpoints del servidor a ataques como manipulación de datos, inyección o acceso no autorizado si no se protege correctamente. Las validaciones siempre deben hacerse en el servidor, ya que el cliente puede ser modificado por el usuario. Las validaciones en el cliente solo sirven como apoyo para mejorar la experiencia, pero no son seguras por sí solas.
+
+¿Qué es JSON?
+
+JSON (JavaScript Object Notation) es un formato ligero de intercambio de datos basado en texto, fácil de leer para humanos y de procesar para máquinas. Se utiliza comúnmente para enviar y recibir información entre cliente y servidor, especialmente en aplicaciones web y APIs.
