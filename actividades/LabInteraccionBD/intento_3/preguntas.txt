@@ -1,0 +1,46 @@
+1.  ¿Qué ventajas tiene escribir el código SQL únicamente en la capa del
+    modelo?
+
+Centraliza el acceso a datos, lo que facilita mantenimiento, pruebas y
+cambios en la base de datos sin afectar otras capas. Además, mejora la
+seguridad y la organización del código al evitar que la lógica SQL esté
+dispersa en controladores o rutas.
+
+2.  ¿Qué es SQL injection y cómo se puede prevenir?
+
+SQL injection es una vulnerabilidad donde un atacante inserta código SQL
+malicioso en inputs para manipular la base de datos. Se previene usando
+consultas parametrizadas (placeholders), validación de inputs y evitando
+concatenar strings directamente en queries.
+
+3.  ¿Por qué en la práctica las credenciales de Supabase viven en un
+    archivo .env y no directamente en database.js? Menciona al menos dos
+    consecuencias concretas (no teóricas) de haberlas escrito en el
+    código y haber hecho commit.
+
+Se usan variables de entorno para proteger información sensible y
+separar configuración del código.
+
+Consecuencias reales: - Cualquier persona con acceso al repositorio
+puede usar la base de datos (leer, modificar o borrar datos). - Las
+credenciales quedan expuestas públicamente si el repo es público,
+obligando a regenerarlas y pudiendo causar accesos no autorizados.
+
+4.  ¿Qué problema resuelve usar un pool de conexiones en lugar de abrir
+    y cerrar una conexión nueva en cada request?
+
+Reduce el costo de crear conexiones constantemente, mejora el
+rendimiento y evita saturar la base de datos cuando hay muchas
+solicitudes simultáneas, reutilizando conexiones ya abiertas.
+
+5.  Ejemplo de query inseguro y seguro:
+
+Inseguro: const query = “SELECT * FROM usuarios WHERE nombre = ’” +
+nombre + “’”;
+
+Seguro: const query = “SELECT * FROM usuarios WHERE nombre = $1”;
+pool.query(query, [nombre]);
+
+El segundo evita inyección porque los valores se envían por separado del
+SQL, por lo que el motor los trata como datos y no como código
+ejecutable. Así, un input como ’ OR 1=1 – no altera la lógica del query.
