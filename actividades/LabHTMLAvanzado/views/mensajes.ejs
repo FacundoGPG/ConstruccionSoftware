@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <%- include("includes/css.ejs") %>
+</head>
+<body>
+    <div class="container">
+        <h1>Mensajes recibidos</h1>
+        <% if (mensajes.length > 0) { %>
+            <ul>
+                <% for (let msg of mensajes) { %>
+                    <li><strong><%= msg.nombre %></strong> (<%= msg.email %>): <%= msg.mensaje %></li>
+                <% } %>
+            </ul>
+        <% } else { %>
+            <p>No hay mensajes aún.</p>
+        <% } %>
+        <a href="/">Regresar al inicio</a>
+    </div>
+    <%- include("includes/footer.ejs") %>
+</body>
+<%- include("includes/scripts.ejs") %>
+</html>

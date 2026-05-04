@@ -1,0 +1,223 @@
+{
+  "info": {
+    "_postman_id": "a807473a-581a-4ce7-96a9-3aaf1e4ea27d",
+    "name": "Mi Proyecto",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53897183",
+    "_collection_link": "https://go.postman.co/collection/53897183-a807473a-581a-4ce7-96a9-3aaf1e4ea27d?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "test_json",
+      "item": [
+        {
+          "name": "200_test_json",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{local}}{{port}}/test_json",
+              "host": [
+                "{{local}}{{port}}"
+              ],
+              "path": [
+                "test_json"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "200_test_json",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{local}}{{port}}/test_json",
+              "host": [
+                "{{local}}{{port}}"
+              ],
+              "path": [
+                "test_json"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "index",
+      "item": [
+        {
+          "name": "200_index",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{local}}{{port}}",
+              "host": [
+                "{{local}}{{port}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "404_index",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:3001/unicorn",
+              "host": [
+                "localhost"
+              ],
+              "port": "3001",
+              "path": [
+                "unicorn"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Index",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "localhost:3001",
+              "host": [
+                "localhost"
+              ],
+              "port": "3001"
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "test_html",
+      "item": [
+        {
+          "name": "200_test_html",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{local}}{{port}}/test_html",
+              "host": [
+                "{{local}}{{port}}"
+              ],
+              "path": [
+                "test_html"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "form_method",
+      "item": [
+        {
+          "name": "200_form_method",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{local}}{{port}}/form_method",
+              "host": [
+                "{{local}}{{port}}"
+              ],
+              "path": [
+                "form_method"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "200_form_method",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"indice\": 1,\n    \"imprimir\": \"hola\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}{{port}}/form_method",
+              "host": [
+                "{{local}}{{port}}"
+              ],
+              "path": [
+                "form_method"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "404_unicorn",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{local}}{{port}}/unicorn",
+          "host": [
+            "{{local}}{{port}}"
+          ],
+          "path": [
+            "unicorn"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "local",
+      "value": ""
+    },
+    {
+      "key": "port",
+      "value": ""
+    }
+  ]
+}

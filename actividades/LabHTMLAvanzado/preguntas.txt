@@ -1,0 +1,8 @@
+¿Qué otros templating engines existen para node?
+
+
+Algunos templating engines populares para Node.js incluyen EJS, Pug (antes conocido como Jade), 
+Handlebars, Mustache y  Nunjucks. Estos motores permiten generar contenido HTML dinámico a partir de datos, 
+facilitando la separación entre la lógica del servidor y la presentación. Cada uno tiene sus propias 
+características: por ejemplo, EJS usa una sintaxis similar a JavaScript, Pug es más minimalista y sin 
+HTML tradicional, y Handlebars se enfoca en la simplicidad y reutilización de plantillas.

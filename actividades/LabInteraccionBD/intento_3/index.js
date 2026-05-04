@@ -50,4 +50,6 @@ app.get("buscar", async (req, res) => {
 const gameRoutes = require("./routes/game.routes");
 app.use("/games", gameRoutes);
 
-app.listen(3000);
+app.listen(3000, () => {
+    console.log('Servidor en http://localhost:3000');
+});

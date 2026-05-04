@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <%- include("includes/css.ejs") %>
+</head>
+<body>
+    <div class="container">
+        <h1>Info del servidor</h1>
+        <p>Motor de vistas: <strong>EJS</strong></p>
+        <p>Framework: <strong>Express.js</strong></p>
+        <p>Versión de Node.js: <strong><%= nodeVersion %></strong></p>
+        <p>Fecha: <strong><%= fecha %></strong></p>
+        <a href="/">Regresar al inicio</a>
+    </div>
+    <%- include("includes/footer.ejs") %>
+</body>
+<%- include("includes/scripts.ejs") %>
+</html>
