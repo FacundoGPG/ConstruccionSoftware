@@ -1,14 +1,14 @@
 const log = console.log;
 const multer = require('multer');
-const path = requie("path");
+const path = require("path");
 
 const storage = multer.diskStorage({
     destination: function (req, file, callback){
-        log("File destination:", "./public")
+        log("File destination:", "./private")
         callback(null, "./private");
     },
     filename: function (req, file, callback){
-        //log("Uploaded file: ", file)
+        log("Uploaded file: ", file)
         callback(null, file.originalname);
         //const uniqueSuffix = Date.now() + '-' + Math.round(Math.random)
         //callback(null, file.fieldname + '-' + uniqueSuffix + ".pdf");
@@ -18,27 +18,26 @@ const storage = multer.diskStorage({
 //const upload = multer({ storage: storage}).single("file");
 const upload = multer({ storage: storage}).array("file", 2);
 
-module.exports.upload_file = (req, res) => {
+module.exports.upload_file = async (req, res) => {
     upload(req,res, function(err) {
         if(err){
             console.error(err);
             return res.status(500).json({code: 500, msg:"Error uploading file"});
         }
 
-        log("File uploaded successfully", req.files);
+        log("File uploaded successfully", req.files)
         res.status(200).json({code: 200, msg:"File uploaded successfully"});
     });
 };
 
 module.exports.get_private_file = async (req, res) => {
-    const filename = req.params.file;
+    const fileName = path.basename(req.params.file);
     const filePath = path.join(__dirname, "./private", fileName);
+
     res.sendFile(filePath, (err) => {
         if(err) {
             console.error(err);
-            return res.status(404).json({ code: 404, msg:"File not found"}
-
-            )
+            return res.status(404).json({ code: 404, msg:"File not found"});
         }
     });
 }
